@@ -19,12 +19,18 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthService } from './services/auth.service';
 
 import { AuthGuard } from './guards/auth.guard';
+import { Step1Component } from './components/step1/step1.component';
+import { Step2Component } from './components/step2/step2.component';
+import { Step3Component } from './components/step3/step3.component';
 
 export const router: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'step1', component: Step1Component, canActivate: [AuthGuard] },
+  { path: 'step2', component: Step2Component, canActivate: [AuthGuard] },
+  { path: 'step3', component: Step3Component, canActivate: [AuthGuard] }
 ]
 
 export const firebaseConfig = {
@@ -43,7 +49,10 @@ export const firebaseConfig = {
     LoginComponent,
     NavbarComponent,
     ProfileComponent,
-    SignupComponent
+    SignupComponent,
+    Step1Component,
+    Step2Component,
+    Step3Component
   ],
   imports: [
     BrowserModule,
